@@ -1,117 +1,89 @@
-import 'package:remember/Helpers/config.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
-// ignore: avoid_classes_with_only_static_members
 class AppTheme {
-  static MyTheme get currentTheme => GetIt.I<MyTheme>();
-  static ThemeMode get themeMode => GetIt.I<MyTheme>().currentTheme();
+  AppTheme._();
 
-  static ThemeData lightTheme({
-    required BuildContext context,
-  }) {
-    return ThemeData(
-      textSelectionTheme: TextSelectionThemeData(
-        selectionHandleColor: currentTheme.currentColor(),
-        cursorColor: currentTheme.currentColor(),
-        selectionColor: currentTheme.currentColor(),
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        focusedBorder: UnderlineInputBorder(
-          borderSide:
-          BorderSide(width: 1.5, color: currentTheme.currentColor()),
-        ),
-      ),
-      listTileTheme: ListTileThemeData(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(7.0),
-        ),
-      ),
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-      appBarTheme: AppBarTheme(
-        backgroundColor: currentTheme.currentColor(),
-      ),
-      cardTheme: CardTheme(
-        clipBehavior: Clip.antiAlias,
-        elevation: 5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(7.0),
-        ),
-      ),
-      disabledColor: Colors.grey[600],
-      brightness: Brightness.light,
-      indicatorColor: currentTheme.currentColor(),
-      progressIndicatorTheme: const ProgressIndicatorThemeData()
-          .copyWith(color: currentTheme.currentColor()),
-      iconTheme: IconThemeData(
-        color: Colors.grey[800],
-        opacity: 1.0,
-        size: 24.0,
-      ),
-      colorScheme: Theme.of(context).colorScheme.copyWith(
-        primary: Colors.grey[800],
-        brightness: Brightness.light,
-        secondary: currentTheme.currentColor(),
-      ),
-    );
-  }
+  static const Color notWhite = Color(0xFFEDF0F2);
+  static const Color nearlyWhite = Color(0xFFFEFEFE);
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color nearlyBlack = Color(0xFF213333);
+  static const Color grey = Color(0xFF3A5160);
+  static const Color dark_grey = Color(0xFF313A44);
 
-  static ThemeData darkTheme({
-    required BuildContext context,
-  }) {
-    return ThemeData(
-      textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          primary: Colors.white,
-          backgroundColor: Colors.transparent,
-          elevation: 0.0,
-        ),
-      ),
-      textSelectionTheme: TextSelectionThemeData(
-        selectionHandleColor: currentTheme.currentColor(),
-        cursorColor: currentTheme.currentColor(),
-        selectionColor: currentTheme.currentColor(),
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        focusedBorder: UnderlineInputBorder(
-          borderSide:
-          BorderSide(width: 1.5, color: currentTheme.currentColor()),
-        ),
-      ),
-      listTileTheme: ListTileThemeData(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(7.0),
-        ),
-      ),
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-      brightness: Brightness.dark,
-      appBarTheme: AppBarTheme(
-        color: currentTheme.getCanvasColor(),
-        foregroundColor: Colors.white,
-      ),
-      canvasColor: currentTheme.getCanvasColor(),
-      cardColor: currentTheme.getCardColor(),
-      cardTheme: CardTheme(
-        clipBehavior: Clip.antiAlias,
-        elevation: 5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(7.0),
-        ),
-      ),
-      dialogBackgroundColor: currentTheme.getCardColor(),
-      progressIndicatorTheme: const ProgressIndicatorThemeData()
-          .copyWith(color: currentTheme.currentColor()),
-      iconTheme: const IconThemeData(
-        color: Colors.white,
-        opacity: 1.0,
-        size: 24.0,
-      ),
-      indicatorColor: currentTheme.currentColor(),
-      colorScheme: Theme.of(context).colorScheme.copyWith(
-        primary: Colors.white,
-        secondary: currentTheme.currentColor(),
-        brightness: Brightness.dark,
-      ),
-    );
-  }
+  static const Color darkText = Color(0xFF253840);
+  static const Color darkerText = Color(0xFF17262A);
+  static const Color lightText = Color(0xFF4A6572);
+  static const Color deactivatedText = Color(0xFF767676);
+  static const Color dismissibleBackground = Color(0xFF364A54);
+  static const Color chipBackground = Color(0xFFEEF1F3);
+  static const Color spacer = Color(0xFFF2F2F2);
+  static const String fontName = 'WorkSans';
+
+  static const TextTheme textTheme = TextTheme(
+    headline4: display1,
+    headline5: headline,
+    headline6: title,
+    subtitle2: subtitle,
+    bodyText2: body2,
+    bodyText1: body1,
+    caption: caption,
+  );
+
+  static const TextStyle display1 = TextStyle( // h4 -> display1
+    fontFamily: fontName,
+    fontWeight: FontWeight.bold,
+    fontSize: 36,
+    letterSpacing: 0.4,
+    height: 0.9,
+    color: darkerText,
+  );
+
+  static const TextStyle headline = TextStyle( // h5 -> headline
+    fontFamily: fontName,
+    fontWeight: FontWeight.bold,
+    fontSize: 24,
+    letterSpacing: 0.27,
+    color: darkerText,
+  );
+
+  static const TextStyle title = TextStyle( // h6 -> title
+    fontFamily: fontName,
+    fontWeight: FontWeight.bold,
+    fontSize: 16,
+    letterSpacing: 0.18,
+    color: darkerText,
+  );
+
+  static const TextStyle subtitle = TextStyle( // subtitle2 -> subtitle
+    fontFamily: fontName,
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    letterSpacing: -0.04,
+    color: darkText,
+  );
+
+  static const TextStyle body2 = TextStyle( // body1 -> body2
+    fontFamily: fontName,
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    letterSpacing: 0.2,
+    color: darkText,
+  );
+
+  static const TextStyle body1 = TextStyle( // body2 -> body1
+    fontFamily: fontName,
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+    letterSpacing: -0.05,
+    color: darkText,
+  );
+
+  static const TextStyle caption = TextStyle( // Caption -> caption
+    fontFamily: fontName,
+    fontWeight: FontWeight.w400,
+    fontSize: 12,
+    letterSpacing: 0.2,
+    color: lightText, // was lightText
+  );
+
 }

@@ -1,6 +1,7 @@
 # Tavern Management
 
 A new Flutter project.
+restaurant-app
 
 ## Getting Started
 tavern-management

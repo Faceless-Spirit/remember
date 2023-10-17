@@ -1,9 +1,11 @@
-import 'package:remember/app_theme.dart';
-import 'package:remember/custom_drawer/drawer_user_controller.dart';
-import 'package:/custom_drawer/home_drawer.dart';
-import 'package:/feedback_screen.dart';
-import 'package:/invite_friend_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:remember/feedback_screen.dart';
+import 'package:remember/help_screen.dart';
+import 'package:remember/invite_friend_screen.dart';
+import 'package:remember/screens/introduction_animation/introduction_animation_screen.dart';
+import 'package:remember/services/custom_drawer/drawer_user_controller.dart';
+import 'package:remember/services/custom_drawer/home_drawer.dart';
+import 'package:remember/theme/app_theme.dart';
 
 class NavigationHomeScreen extends StatefulWidget {
   @override
@@ -17,7 +19,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
   @override
   void initState() {
     drawerIndex = DrawerIndex.HOME;
-    screenView = const MyHomePage();
+    screenView = const IntroductionAnimationScreen();
     super.initState();
   }
 
@@ -51,7 +53,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
       switch (drawerIndex) {
         case DrawerIndex.HOME:
           setState(() {
-            screenView = const MyHomePage();
+            screenView = const IntroductionAnimationScreen();
           });
           break;
         case DrawerIndex.Help:

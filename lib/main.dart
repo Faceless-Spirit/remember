@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:remember/theme//app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:remember/theme/app_theme.dart';
 import 'navigation_home_screen.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
@@ -29,7 +29,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter UI',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        useMaterial3: false,
+        primarySwatch: Colors.green,
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color.fromARGB(255, 22, 22, 22),
+        fontFamily: 'WorkSans',
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
       ),

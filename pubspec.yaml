@@ -29,6 +29,12 @@ dependencies:
   card_loading: ^0.3.0
   riverpod: ^2.4.1
   sqflite: ^2.3.0
+  flutter_login: ^4.2.1
+  firebase_auth: ^4.14.1
+  path_provider: ^2.1.1
+  http: ^1.1.0
+  fluttertoast: ^8.2.4
+  rflutter_alert: ^2.0.7
 dev_dependencies:
   flutter_test:
     sdk: flutter

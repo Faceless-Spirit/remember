@@ -4,15 +4,26 @@ import 'package:remember/data/data.dart';
 import 'package:remember/screens/home.dart';
 import 'package:remember/screens/library.dart';
 import 'package:remember/screens/search.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'auth/auth_screen.dart';
 
 class Base extends StatefulWidget {
-  const Base({super.key});
-
+  // const Base({super.key});
+  Base(
+      {Key? key, required this.token, required this.name, required this.email})
+      : super(key: key);
+  String name;
+  String email;
+  String token;
   @override
   State<Base> createState() => _BaseState();
 }
 
 class _BaseState extends State<Base> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   int currentIndex = 0;
   List<Widget> mainBodies = [const Library(), const Search(), const Home()];
 

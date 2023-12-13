@@ -6,8 +6,13 @@ import 'package:remember/screens/library.dart';
 import 'package:remember/screens/search.dart';
 
 class Base extends StatefulWidget {
-  const Base({super.key});
-
+  // const Base({super.key});
+  Base(
+      {Key? key, required this.token, required this.name, required this.email})
+      : super(key: key);
+  String name;
+  String email;
+  String token;
   @override
   State<Base> createState() => _BaseState();
 }

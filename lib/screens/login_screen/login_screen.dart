@@ -4,15 +4,42 @@ import 'package:flutter/material.dart';
 
 import 'components/center_widget/center_widget.dart';
 import 'components/login_content.dart';
+// login
+import 'dart:convert';
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:remember/screens/base.dart';
+import 'package:remember/models/data.dart';
+import 'package:http/http.dart' as http;
+import 'package:remember/global.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  LoginScreen({Key? key, this.email, this.password}) : super(key: key);
 
+  String? email;
+  String? password;
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  final _formLoginKey = GlobalKey<FormState>();
+
+  String? validateEmail(String? value) {
+    String pattern =
+        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+        r"{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+        r"{0,253}[a-zA-Z0-9])?)*$";
+    RegExp regex = RegExp(pattern);
+    if (value == null || value.isEmpty || !regex.hasMatch(value))
+      return 'Enter a valid email address';
+    else
+      return null;
+  }
   Widget topWidget(double screenWidth) {
     return Transform.rotate(
       angle: -35 * math.pi / 180,

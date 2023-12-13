@@ -1,12 +1,10 @@
 import 'dart:convert';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:mobile_client/views/HomePage.dart';
-import 'package:mobile_client/views/RegisterPage.dart';
-// import 'package:mobile_client/screens/HomePage.dart';
-import 'package:mobile_client/models/data.dart';
+import 'package:remember/screens/base.dart';
+import 'package:remember/views/register_page.dart';
 import 'package:http/http.dart' as http;
-import 'package:mobile_client/global.dart';
+import 'package:remember/global.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginPage extends StatefulWidget {
@@ -59,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                   margin: const EdgeInsets.only(top: 50),
                   padding: const EdgeInsets.all(10),
                   child: const Text(
-                    'Welcome to Todo App ',
+                    'Tavern App',
                     style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.w500,
@@ -168,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
         var userData = await getUser(token);
         if (userData != null) {
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => MyHomePage(
+              builder: (context) => Base(
                   token: token,
                   name: userData["name"].toString(),
                   email: userData["email"].toString())));

@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
-import 'package:mobile_client/global.dart';
+import 'package:remember/global.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mobile_client/views/LoginPage.dart';
-import 'package:mobile_client/models/data.dart';
-import 'package:mobile_client/services/remote_service.dart';
+import 'package:remember/views/login_page.dart';
+import 'package:remember/models/data.dart';
+import 'package:remember/services/remote_service.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class MyHomePage extends StatefulWidget {

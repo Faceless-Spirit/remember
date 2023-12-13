@@ -2,10 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mobile_client/global.dart';
-import 'package:mobile_client/views/HomePage.dart';
-import 'package:mobile_client/views/LoginPage.dart';
-import 'package:mobile_client/models/data.dart';
+import 'package:remember/global.dart';
+import 'package:remember/views/login_page.dart';
 import 'package:http/http.dart' as http;
 
 class RegisterPage extends StatefulWidget {

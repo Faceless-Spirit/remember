@@ -4,6 +4,11 @@ import 'package:remember/data/data.dart';
 import 'package:remember/screens/home.dart';
 import 'package:remember/screens/library.dart';
 import 'package:remember/screens/search.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'auth/auth_screen.dart';
 
 class Base extends StatefulWidget {
   // const Base({super.key});
@@ -18,6 +23,7 @@ class Base extends StatefulWidget {
 }
 
 class _BaseState extends State<Base> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   int currentIndex = 0;
   List<Widget> mainBodies = [const Library(), const Search(), const Home()];
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "826544374112",
+    "project_id": "remember-17fc2",
+    "storage_bucket": "remember-17fc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826544374112:android:31c2f557e0ad7e2d25de05",
+        "android_client_info": {
+          "package_name": "com.example.remember"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtRLuj1tclv_aZKDI_aHhOFYdNkXudKmI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -17,7 +17,74 @@ class Library extends StatefulWidget {
 }
 
 class _LibraryState extends State<Library> {
+  List<Map<String, dynamic>> _notes = [];
+  List<Map<String, dynamic>> _note = [];
   bool isGrid = true;
+
+  bool _isLoading = true;
+  bool _isEmpty = false;
+
+  Color? color;
+
+  TextEditingController title = TextEditingController();
+  TextEditingController note = TextEditingController();
+
+  @override
+  void initState() {
+    fetchAllNotes();
+    super.initState();
+  }
+
+  void fetchAllNotes() async {
+    final data = await Crud.getNotes();
+    setState(() {
+      _notes = data;
+      if (data.isNotEmpty) {
+        _isLoading = false;
+        _isEmpty = false;
+      } else {
+        _isEmpty = true;
+      }
+    });
+  }
+
+  void fetchNote(int id) async {
+    final data = await Crud.getNote(id);
+    setState(() {
+      _note = data;
+    });
+  }
+
+  void createNote() async {
+    await Crud.createNote(title.text, note.text);
+    fetchAllNotes();
+  }
+
+  void updateNote(int id) async {
+    await Crud.updateNote(id, title.text, note.text);
+    fetchAllNotes();
+  }
+
+  void deleteNote(int id) async {
+    await Crud.deleteNote(id);
+    fetchAllNotes();
+  }
+
+  void deleteAllNotes() async {
+    await Crud.deleteAllNotes();
+    fetchAllNotes();
+  }
+
+  showFormSheet(int? id) {
+    if (id != null) {
+      final existingNote = _notes.firstWhere((element) => element["id"] == id);
+      title.text = existingNote["title"];
+      note.text = existingNote["note"];
+    }
+    if (id == null) {
+      title.text = '';
+      note.text = '';
+    }
 
   Future openBottomSheet() {
     return showModalBottomSheet(
